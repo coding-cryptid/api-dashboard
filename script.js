@@ -15,6 +15,18 @@ const jokeApi = document.getElementById('joke-api');
 const publicApiOutputContainer = document.getElementById('publicapi-output');
 const publicApi = document.getElementById('public-api');
 
+async function getDogImage() {
+    const response = await fetch("https://dog.ceo/api/breeds/image/random");
+    const data = await response.json();
+    dogOutputContainer.innerHTML = `<img src="${data.message}" alt="Random Dog Image" style="max-width: 100%; height: auto;">`;
+}
+
+async function getCatImage() {
+    const response = await fetch("https://api.thecatapi.com/v1/images/search");
+    const data = await response.json();
+    catOutputContainer.innerHTML = `<img src="${data[0].url}" alt="Random Cat Image" style="max-width: 100%; height: auto;">`;
+}
+
 async function getWeather() {
     const response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m");
     const data = await response.json();
@@ -25,3 +37,4 @@ async function getWeather() {
         <p>Humidity: ${data.current.relative_humidity_2m}%</p>
     `;
 }
+
