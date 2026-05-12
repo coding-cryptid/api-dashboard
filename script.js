@@ -74,9 +74,15 @@ async function getJoke() {
 }
 
 async function getMeme() {
-    const response = await fetch("https://api.imgflip.com/get_memes");
-    const data = await response.json();
-    memeOutputContainer.innerHTML = `
-        <img src="${data.data.memes[0].url}" alt="Random Meme" style="max-width: 100%; height: auto;">
-    `;
+  const response = await fetch("https://api.imgflip.com/get_memes");
+  const data = await response.json();
+
+  const memes = data.data.memes;
+  const randomMeme = memes[Math.floor(Math.random() * memes.length)];
+
+  memeOutputContainer.innerHTML = `
+    <img src="${randomMeme.url}" 
+    alt="Random Meme" 
+    style="max-width: 100%; height: auto;">
+  `;
 }
