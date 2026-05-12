@@ -6,7 +6,7 @@ const weatherOutputContainer = document.getElementById('weather-output');
 const weatherApi = document.getElementById('weather-api');
 const currencyOutputContainer = document.getElementById('currency-output');
 const currencyApi = document.getElementById('currency-api');
-const moviesOutputContainer = document.getElementById('movies-output');
+const movieOutputContainer = document.getElementById('movies-output');
 const moviesApi = document.getElementById('movies-api');
 const githubOutputContainer = document.getElementById('github-output');
 const githubApi = document.getElementById('github-api');
@@ -49,7 +49,15 @@ async function getExchangeRates() {
 }
 
 async function getMovies() {
-    const response = await fetch("")
+  const response = await fetch("https://api.tvmaze.com/shows");
+  const data = await response.json();
+
+  const randomShow = data[Math.floor(Math.random() * data.length)];
+
+  movieOutputContainer.innerHTML = `
+    <h3>${randomShow.name}</h3>
+    ${randomShow.image ? `<img src="${randomShow.image.medium}">` : "<p>No image available</p>"}
+  `;
 }
 
 async function getGitHubUser() {
