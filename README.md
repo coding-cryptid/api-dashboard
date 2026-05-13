@@ -2,7 +2,7 @@
 View my project here: https://coding-cryptid.github.io/api-dashboard/
 
 ## About this Build:
-📱 This build uses integrated APIs to power 8 mini apps! Each app on the dashboard has a button which when clicked, generates an output based on the API used. The apps include a joke generator, a weather forcaster, a currency converter, and more!!!
+📱 This build uses integrated APIs to power 8 mini apps! Each app on the dashboard has a button which when clicked, generates an output based on the API used. The apps include a joke generator, a weather forecaster, a currency converter, and more!!!
 
 🎨 I decided to give this dashboard a fun, cartoony style, with thick borders, dark and defined box-shadows, bold fonts, and bright colors!
 
